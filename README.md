@@ -1,1 +1,4 @@
-# jupyter-notebook
+# jupyterlab
+
+## License
+[MIT](LICENSE)

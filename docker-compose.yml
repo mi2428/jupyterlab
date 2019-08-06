@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  jupyterlab:
+    image: docker.pkg.github.com/mi2428/jupyterlab/jupyterlab:latest
+    build:
+      context: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/home/jovyan/work
+
