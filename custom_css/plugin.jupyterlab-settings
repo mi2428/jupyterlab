@@ -1,0 +1,11 @@
+{
+    "rules": [
+        {
+            "selector": ".CodeMirror-cursor",
+            "styles": [
+                "background: #ccc !important",
+                "border-left: var(--jp-code-cursor-width0) solid #ccc !important"
+            ]
+        }
+    ]
+}
