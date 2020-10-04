@@ -11,6 +11,8 @@ RUN pip install --upgrade pip && \
 
 RUN pip install jupyterlab==${JUPYTER_VERSION}
 RUN jupyter labextension install \
+        @oriolmirosa/jupyterlab_materialdarker \
+        @mohirio/jupyterlab-horizon-theme \
         @axlair/jupyterlab_vim
 RUN jupyter serverextension enable --py jupyterlab
 
