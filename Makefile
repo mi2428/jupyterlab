@@ -8,4 +8,4 @@ lint:
 
 .PHONY: build
 build:
-	$(BUILDKIT_DOCKER_BUILD) . --no-cache -t mi2428/jupyterlab:latest
+	$(BUILDKIT_DOCKER_BUILD) . -t mi2428/jupyterlab:latest

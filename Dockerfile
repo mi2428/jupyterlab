@@ -5,6 +5,9 @@ ARG JUPYTER_VERSION="2.2.8"
 
 ENV TZ=Asia/Tokyo
 
+WORKDIR /home/jovyan
+USER root
+
 COPY requirements.txt requirements.txt
 
 RUN pip install --upgrade pip && \
@@ -30,15 +33,12 @@ RUN jupyter serverextension enable --py \
         jupyterlab_code_formatter \
         jupyterlab_git
 
-RUN mkdir -p \
-        .jupyter/lab/user-settings/@jupyterlab/notebook-extension \
-        .jupyter/lab/user-settings/@jupyterlab/shortcuts-extension \
-        .jupyter/lab/user-settings/@wallneradam/custom_css
+COPY jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
+COPY user-settings .jupyter/lab/user-settings
 
-COPY jupyter_notebook_config.py .jupyter/
-COPY tracker.jupyterlab-settings .jupyter/lab/user-settings/@jupyterlab/notebook-extension/
-COPY shortcuts.jupyterlab-settings .jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
-COPY custom_css/plugin.jupyterlab-settings .jupyter/lab/user-settings/@wallneradam/custom_css/plugin.jupyterlab-settings
+RUN chown -R jovyan:users .jupyter
+
+USER jovyan
 
 CMD jupyter lab
 
