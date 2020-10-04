@@ -1,3 +1,8 @@
-matplotlib
-seaborn
 beautifulsoup4
+Cython
+matplotlib
+namba
+numpy
+networkx
+scipy
+seaborn

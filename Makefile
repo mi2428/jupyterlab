@@ -1,5 +1,7 @@
 BUILDKIT_DOCKER_BUILD = DOCKER_BUILDKIT=1 docker build
 
+all: build
+
 .PHONY: lint
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
