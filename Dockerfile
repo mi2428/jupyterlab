@@ -39,6 +39,7 @@ COPY user-settings .jupyter/lab/user-settings
 RUN chown -R jovyan:users .jupyter
 
 USER jovyan
+WORKDIR /home/jovyan/work
 
 CMD jupyter lab
 
