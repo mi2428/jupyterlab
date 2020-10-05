@@ -4,5 +4,8 @@ matplotlib
 numba
 numpy
 networkx
+pendulum
+pygsheets
+python-dateutil
 scipy
 seaborn

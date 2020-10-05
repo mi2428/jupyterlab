@@ -16,7 +16,9 @@ RUN pip install --upgrade pip && \
         jupyterlab==${JUPYTER_VERSION} \
         autopep8 \
         jupyterlab_code_formatter \
-        jupyterlab-git
+        jupyterlab-git \
+        jupyterlab_latex \
+        ipywidgets
 
 RUN jupyter labextension install \
         @oriolmirosa/jupyterlab_materialdarker \
@@ -26,7 +28,14 @@ RUN jupyter labextension install \
         @jupyterlab/toc \
         @ryantam626/jupyterlab_code_formatter \
         @jupyterlab/git \
-        @axlair/jupyterlab_vim
+        @jupyterlab/github \
+        @axlair/jupyterlab_vim \
+        @jupyterlab/latex \
+        @ijmbarr/jupyterlab_spellchecker \
+        jupyterlab-drawio \
+        @aquirdturtle/collapsible_headings \
+        @krassowski/jupyterlab_go_to_definition \
+        @lckr/jupyterlab_variableinspector
 
 RUN jupyter serverextension enable --py \
         jupyterlab \
