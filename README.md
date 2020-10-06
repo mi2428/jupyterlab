@@ -1,6 +1,6 @@
 # jupyterlab ![GitHub CI/CD](https://github.com/mi2428/jupyterlab/workflows/GitHub%20CI/CD/badge.svg)
 
-Ready-to-run docker image of [JupyterLab](https://github.com/jupyterlab/jupyterlab) based on [jupyter/datascience-notebook](https://hub.docker.com/r/jupyter/base-notebook/) with some additional libraries.
+Ready-to-run docker image of [JupyterLab](https://github.com/jupyterlab/jupyterlab) based on [jupyter/datascience-notebook](https://hub.docker.com/r/jupyter/datascience-notebook/) with some additional libraries.
 
 ### Available kernels
 
