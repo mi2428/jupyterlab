@@ -9,3 +9,7 @@ lint:
 .PHONY: build
 build:
 	$(BUILDKIT_DOCKER_BUILD) . -t mi2428/jupyterlab:latest
+
+.PHONY: test
+test:
+	$(BUILDKIT_DOCKER_BUILD) . -t mi2428/jupyterlab:test
