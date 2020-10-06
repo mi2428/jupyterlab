@@ -52,11 +52,6 @@ RUN jupyter serverextension enable --py \
         jupyterlab_code_formatter \
         jupyterlab_git
 
-COPY jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
-COPY user-settings .jupyter/lab/user-settings
-
-RUN chown -R jovyan:users .jupyter
-
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential software-properties-common nodejs \
@@ -65,11 +60,20 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 USER jovyan
-WORKDIR /home/jovyan/work
 
 RUN npm install -g \
         zeromq \
         ijavascript && \
     ijsinstall
+
+USER root
+
+COPY jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
+COPY user-settings .jupyter/lab/user-settings
+
+RUN chown -R jovyan:users .jupyter
+
+USER jovyan
+WORKDIR /home/jovyan/work
 
 CMD ["jupyter", "lab", "--no-browser", "--ip=0.0.0.0", "--allow-root"]

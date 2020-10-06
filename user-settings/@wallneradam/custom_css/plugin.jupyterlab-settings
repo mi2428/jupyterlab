@@ -1,17 +1,25 @@
 {
     "rules": [
         {
-            "selector": ".CodeMirror-cursor",
+            "selector": "body",
             "styles": [
-                "background: #ccc !important",
-                "border-left: var(--jp-code-cursor-width0) solid #ccc !important"
+                "--jp-brand-color0: #2068ff !important",
+                "--jp-brand-color1: #3a79ff !important",
+                "--jp-brand-color2: #538bff !important",
+                "--jp-brand-color3: #6d9cff !important",
+                "--jp-layout-color2: #353535 !important",
+                "--jp-border-color0: var(--md-grey-600) !important",
+                "--jp-border-color1: var(--md-grey-500) !important",
+                "--jp-border-color2: var(--md-grey-400) !important",
+                "--jp-border-color3: var(--md-grey-400) !important",
+                "--jp-editor-cursor-color: var(--md-grey-400) !important",
             ],
         },
         {
-            "selector": ".jp-CodeMirrorEditor.jp-Editor.jp-InputArea-editor.jp-mod-focused",
+            "selector": ".CodeMirror-cursor",
             "styles": [
-                "box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.4) !important"
-            ]
-        }
+                "background: var(--md-grey-400) !important",
+            ],
+        },
     ]
 }
