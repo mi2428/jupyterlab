@@ -10,44 +10,41 @@ ENV TZ=Asia/Tokyo
 WORKDIR /home/jovyan
 USER root
 
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends \
-#         build-essential software-properties-common nodejs \
-#         cmake gnupg fonts-noto-cjk libtool libffi-dev libzmq3-dev libczmq-dev && \
-#     apt-get clean && \
-#     rm -rf /var/lib/apt/lists/*
-
 COPY requirements.txt requirements.txt
 
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt && \
     pip install \
         jupyterlab==${JUPYTER_VERSION} \
-        powershell_kernel \
+        jupyter-lsp \
+        'python-language-server[all]' \
+        xeus-python \
+        ptvsd \
+        ansible \
         autopep8 \
         jupyterlab_code_formatter \
         jupyterlab-git \
         jupyterlab_latex \
-        ipywidgets \
-        jupyter-kite
+        ipywidgets
 
 RUN jupyter labextension install \
+        @jupyterlab/toc \
+        @jupyterlab/debugger \
+        @jupyterlab/git \
+        @jupyterlab/github \
+        @jupyterlab/latex \
+        @axlair/jupyterlab_vim \
+        @krassowski/jupyterlab-lsp \
+        @krassowski/jupyterlab_go_to_definition \
+        @lckr/jupyterlab_variableinspector \
+        @lckr/jupyterlab_variableinspector \
         @oriolmirosa/jupyterlab_materialdarker \
         @mohirio/jupyterlab-horizon-theme \
         @wallneradam/custom_css \
-        @lckr/jupyterlab_variableinspector \
-        @jupyterlab/toc \
         @ryantam626/jupyterlab_code_formatter \
-        @jupyterlab/git \
-        @jupyterlab/github \
-        @axlair/jupyterlab_vim \
-        @jupyterlab/latex \
         @ijmbarr/jupyterlab_spellchecker \
-        jupyterlab-drawio \
         @aquirdturtle/collapsible_headings \
-        @krassowski/jupyterlab_go_to_definition \
-        @lckr/jupyterlab_variableinspector \
-        @kiteco/jupyterlab-kite && \
+        jupyterlab-drawio && \
     jupyter lab build
 
 RUN jupyter serverextension enable --py \
@@ -60,14 +57,19 @@ COPY user-settings .jupyter/lab/user-settings
 
 RUN chown -R jovyan:users .jupyter
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential software-properties-common nodejs \
+        cmake gnupg fonts-noto-cjk libtool libffi-dev libzmq3-dev libczmq-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 USER jovyan
 WORKDIR /home/jovyan/work
 
-# RUN npm install -g \
-#         ijavascript \
-#         typescript \
-#         itypescript @types/node && \
-#     ijsinstall && \
-#     its --install=global
+RUN npm install -g \
+        zeromq \
+        ijavascript && \
+    ijsinstall
 
 CMD ["jupyter", "lab", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
