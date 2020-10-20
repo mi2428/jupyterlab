@@ -30,7 +30,7 @@ RUN pip install --upgrade pip && \
 RUN jupyter labextension install \
         @jupyterlab/toc \
         @jupyterlab/debugger \
-        # @jupyterlab/git \
+        @jupyterlab/git \
         @jupyterlab/github \
         @jupyterlab/latex \
         @axlair/jupyterlab_vim \
