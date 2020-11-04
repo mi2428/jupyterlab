@@ -17,11 +17,14 @@ RUN pip install --upgrade pip && \
     pip install \
         jupyterlab==${JUPYTER_VERSION} \
         jupyter-lsp \
-        'python-language-server[all]' \
+        #'python-language-server[all]' \
         xeus-python \
         ptvsd \
         ansible \
-        autopep8 \
+        # autopep8 \
+        # flake8 \
+        # pycodestyle \
+        # pycodestyle_magic \
         jupyterlab_code_formatter \
         jupyterlab-git \
         jupyterlab_latex \
