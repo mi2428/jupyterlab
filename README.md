@@ -16,10 +16,10 @@ Login password is `changeme`. Launch container with `docker-compose.yml` or type
 
 ```
 # Fetch from DockerHub
-% docker run --rm -p 8888:8888 -v $PWD:/home/jovyan/work mi2428/jupyterlab:latest
+% docker run --rm -p 8888:8888 -e GRANT_SUDO=yes -v $PWD:/home/jovyan/work mi2428/jupyterlab:latest
 
 # Fetch from GitHub Package Registry
-% docker run --rm -p 8888:8888 -v $PWD:/home/jovyan/work docker.pkg.github.com/mi2428/jupyterlab/jupyterlab:latest
+% docker run --rm -p 8888:8888 -e GRANT_SUDO=yes -v $PWD:/home/jovyan/work docker.pkg.github.com/mi2428/jupyterlab/jupyterlab:latest
 ```
 
 To deploy using Singularity, the following commands will help:

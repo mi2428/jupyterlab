@@ -13,6 +13,7 @@
                 "--jp-border-color2: var(--md-grey-400) !important",
                 "--jp-border-color3: var(--md-grey-400) !important",
                 "--jp-editor-cursor-color: var(--md-grey-400) !important",
+                "--jp-terminal-font-family: var(--jp-code-font-family-default) !important",
             ],
         },
         {

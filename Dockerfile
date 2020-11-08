@@ -21,10 +21,10 @@ RUN pip install --upgrade pip && \
         xeus-python \
         ptvsd \
         ansible \
-        # autopep8 \
-        # flake8 \
-        # pycodestyle \
-        # pycodestyle_magic \
+        autopep8 \
+        flake8 \
+        pycodestyle \
+        pycodestyle_magic \
         jupyterlab_code_formatter \
         jupyterlab-git \
         jupyterlab_latex \
