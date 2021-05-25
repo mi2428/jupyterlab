@@ -18,6 +18,9 @@ Login password is `changeme`. Launch container with `docker-compose.yml` or type
 # Fetch from DockerHub
 % docker run --rm -p 8888:8888 -e GRANT_SUDO=yes -v $PWD:/home/jovyan/work mi2428/jupyterlab:latest
 
+## Disable the JupyterLab LSP
+% docker run --rm -p 8888:8888 -e GRANT_SUDO=yes -e USE_LSP=no -v $PWD:/home/jovyan/work mi2428/jupyterlab:latest
+
 # Fetch from GitHub Package Registry
 % docker run --rm -p 8888:8888 -e GRANT_SUDO=yes -v $PWD:/home/jovyan/work docker.pkg.github.com/mi2428/jupyterlab/jupyterlab:latest
 ```
